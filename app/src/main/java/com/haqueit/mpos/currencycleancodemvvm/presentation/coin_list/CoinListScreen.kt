@@ -29,11 +29,14 @@ fun CoinListScreen(
     navController: NavController,
     viewModel: CoinListViewModel = hiltViewModel()
 ) {
+    Text(text = "Coin List")
+
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
+
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.coins) { coin ->
-                CoinListItem(coin = coin, onITemClick = {
+                CoinListItem(coin = coin, onItemClick = {
                     navController.navigate(Screen.CoinDetailScreen.route + "/${coin.id}")
                 })
             }
@@ -43,7 +46,7 @@ fun CoinListScreen(
         if(state.error.isNotBlank()){
             Text(
                 text = state.error,
-                color = MaterialTheme.colorScheme.error,
+               // color = MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()

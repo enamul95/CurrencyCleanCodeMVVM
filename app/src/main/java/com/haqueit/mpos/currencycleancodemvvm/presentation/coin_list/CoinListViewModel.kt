@@ -26,7 +26,7 @@ class CoinListViewModel @Inject constructor(
 
     private fun getCoins() {
         getCoinsUseCase().onEach { result ->
-            {
+
                 when (result) {
                     is Resource.Success ->{
                         _state.value = CoinListState(coins = result.data ?: emptyList())
@@ -43,7 +43,7 @@ class CoinListViewModel @Inject constructor(
 
                 }
             }
-        }.launchIn(viewModelScope)
+        .launchIn(viewModelScope)
     }
 
 }

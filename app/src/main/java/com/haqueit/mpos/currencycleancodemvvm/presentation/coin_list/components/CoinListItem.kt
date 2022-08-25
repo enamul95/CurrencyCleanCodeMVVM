@@ -20,35 +20,27 @@ import androidx.compose.ui.text.style.TextOverflow
 @Composable
 fun CoinListItem(
     coin: Coin,
-    onITemClick: (Coin) -> Unit
+    onItemClick: (Coin) -> Unit
 ) {
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onITemClick(coin) }
+            .clickable { onItemClick(coin) }
             .padding(20.dp),
         horizontalArrangement = Arrangement.SpaceBetween
-
     ) {
         Text(
-            text = "${coin.rank}.${coin.name} (${coin.symbol})",
-            style =  MaterialTheme.typography.bodyLarge,
+            text = "${coin.rank}. ${coin.name} (${coin.symbol})",
+            style = MaterialTheme.typography.bodyLarge,
             overflow = TextOverflow.Ellipsis
-
         )
-        
         Text(
-            text = if (coin.isActive) "active" else "inactive",
+            text = if(coin.isActive) "active" else "inactive",
             color = if(coin.isActive) Color.Green else Color.Red,
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.End,
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.align(CenterVertically)
-
-
         )
-
     }
-
 }
