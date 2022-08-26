@@ -70,6 +70,8 @@ fun CoinDetailScreen(
                         style = MaterialTheme.typography.bodyLarge
                     )
                     Spacer(modifier = Modifier.height(15.dp))
+
+                    // FlowRow use for wrap the if not adjust
                     FlowRow(
                         //space between horizontal
                         mainAxisSpacing = 10.dp,

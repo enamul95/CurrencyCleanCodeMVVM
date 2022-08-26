@@ -12,9 +12,11 @@ import javax.inject.Inject
 
 
 class GetCoinsUseCase @Inject constructor(
+    //inject interface not interface implementation
     private val repository: CoinRepository
 ) {
-
+    //Operator invoke fun use for called GetCoinUseCase class as a funciton
+    // Flow use for multiple value like loading for progress bar, if sucess meet list of coin, error show error
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow {
         try {
             emit(Resource.Loading<List<Coin>>())

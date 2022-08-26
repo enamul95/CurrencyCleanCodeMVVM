@@ -29,8 +29,6 @@ fun CoinListScreen(
     navController: NavController,
     viewModel: CoinListViewModel = hiltViewModel()
 ) {
-    Text(text = "Coin List")
-
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
 

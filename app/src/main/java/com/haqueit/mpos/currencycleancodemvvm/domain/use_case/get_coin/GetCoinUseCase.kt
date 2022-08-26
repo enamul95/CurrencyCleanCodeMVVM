@@ -17,6 +17,8 @@ class GetCoinUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 
+    //Operator invoke fun use for called GetCoinUseCase class as a funciton
+    // Flow use for multiple value like loading for progress bar, if sucess meet  of coin, error show error
     operator fun invoke(coinId:String): Flow<Resource<CoinDetails>> = flow {
         try {
             emit(Resource.Loading<CoinDetails>())

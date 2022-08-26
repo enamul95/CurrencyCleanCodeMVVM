@@ -22,6 +22,7 @@ object AppModule {
     fun providePaprikaApi():CoinPaprikaApi{
         return Retrofit.Builder()
             .baseUrl(Constrants.BASE_URL)
+            //addConverterFactory for json show serialize & des
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(CoinPaprikaApi::class.java)
